@@ -94,7 +94,7 @@ exports.createDemoPage = async (req, res) => {
     }
 
     const cleanedSlug = slug.trim().toLowerCase();
-    const targetUrl = `http://localhost:5173/demo/${cleanedSlug}`;
+    const targetUrl = `https://scan-go-frontend.onrender.com/demo/${cleanedSlug}`;
     const qrCodeDataUrl = await QRCode.toDataURL(targetUrl);
 
     const productImagePath = req.file ? `/uploads/demo/${req.file.filename}` : '';
