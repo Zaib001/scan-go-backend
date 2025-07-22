@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://scan-go-frontend.onrender.com',
   credentials: true
 }));
 // Create uploads directory if it doesn't exist
