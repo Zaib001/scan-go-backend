@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 
 app.use(cors({
-  origin: 'https://scan-go-frontend.onrender.com',
+  origin: ['https://scan-go-frontend.onrender.com', 'http://localhost:5173'],
   credentials: true
 }));
 // Create uploads directory if it doesn't exist
@@ -243,15 +243,15 @@ app.post('/api/tts/generate', authenticate, async (req, res) => {
     });
 
   } catch (error) {
-  if (error.response?.data && Buffer.isBuffer(error.response.data)) {
-    const errorJson = JSON.parse(error.response.data.toString('utf8'));
-    console.error('TTS Error:', errorJson);
-    return res.status(400).send({ error: errorJson.detail?.message || 'TTS generation failed' });
-  }
+    if (error.response?.data && Buffer.isBuffer(error.response.data)) {
+      const errorJson = JSON.parse(error.response.data.toString('utf8'));
+      console.error('TTS Error:', errorJson);
+      return res.status(400).send({ error: errorJson.detail?.message || 'TTS generation failed' });
+    }
 
-  console.error('TTS Error:', error.message);
-  res.status(400).send({ error: error.message || 'TTS generation failed' });
-}
+    console.error('TTS Error:', error.message);
+    res.status(400).send({ error: error.message || 'TTS generation failed' });
+  }
 
 });
 
