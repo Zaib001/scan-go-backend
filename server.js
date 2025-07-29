@@ -214,7 +214,7 @@ app.post('/api/tts/generate', authenticate, async (req, res) => {
       responseType: 'arraybuffer',
       data: {
         text: demoItem.textContent,
-        model_id: 'eleven_multilingual_v2', // ✅ make sure this model supports the voice
+        model_id: 'eleven_multilingual_v2',
         voice_settings: {
           stability: 0.5,
           similarity_boost: 0.5,
