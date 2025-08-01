@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 
 app.use(cors({
-  origin: ['https://scan-go-frontend.onrender.com', 'http://localhost:5173'],
+  origin: ['https://scanmeai.com', 'http://localhost:5173'],
   credentials: true
 }));
 // Create uploads directory if it doesn't exist
@@ -268,7 +268,7 @@ app.post('/api/qr-codes/generate', authenticate, async (req, res) => {
 
     // Generate QR code
     const qrCodeDataUrl = await qrcode.toDataURL(
-      `https://yourdomain.com/demo/${demoItem._id}`
+      `https://scanmeai.com/demo/${demoItem._id}`
     );
 
     // Save QR code image locally
